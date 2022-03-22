@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Survey System</title>
+    <link rel="icon" href="~/assets/images/favicon.ico" type="image/x-icon">
+    <link href="~/assets/plugins/simplebar/css/simplebar.css" rel="stylesheet" />
+    <link href="~/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/assets/css/animate.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/css/icons.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/css/sidebar-menu.css" rel="stylesheet" />
+    <link href="~/assets/css/app-style.css" rel="stylesheet" />
+</head>
+<body onload="info_noti()">
+    <div id="wrapper" class="toggled">
+        @await Html.PartialAsync("_Topbar")
+        <div class="clearfix"></div>
+        <div class="content-wrapper">
+            <div class="container-fluid">
+                @RenderBody()
+                <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+            </div>
+        </div>
+        @await Html.PartialAsync("_Footer")
+    </div>
+    <script src="~/assets/js/jquery.min.js"></script>
+    <script src="~/assets/js/popper.min.js"></script>
+    <script src="~/assets/js/bootstrap.min.js"></script>
+    <script src="~/assets/plugins/simplebar/js/simplebar.js"></script>
+    <script src="~/assets/js/waves.js"></script>
+    <script src="~/assets/js/sidebar-menu.js"></script>
+    <script src="~/assets/js/app-script.js"></script>
+    <script src="~/assets/js/index.js"></script>
+</body>
+</html>
