@@ -20,7 +20,7 @@ namespace SurveySystem.Controllers
             if (person.NameSurname != null)
             {
                 person.CreateDate = DateTime.Now;
-                person.CreateBy = "System";
+                person.CreateBy = NameSurname;
                 db.Persons.Add(person);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -47,7 +47,7 @@ namespace SurveySystem.Controllers
             db.Entry(person).State = EntityState.Modified;
             db.Entry(person).Property(e => e.CreateBy).IsModified = false;
             db.Entry(person).Property(e => e.CreateDate).IsModified = false;
-            person.ModifyBy = "System Edit";
+            person.ModifyBy = NameSurname;
             person.ModifyDate = DateTime.Now;
             db.SaveChanges();
             return RedirectToAction("Index");

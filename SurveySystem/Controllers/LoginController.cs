@@ -20,7 +20,7 @@ namespace SurveySystem.Controllers
             {
                 HttpContext.Session.SetString("Code", person.Code);
                 HttpContext.Session.SetString("NameSurname", person.NameSurname);
-                return RedirectToAction("Index", "Person");
+                return RedirectToAction("Index", "Answer");
             }
             else
             {
