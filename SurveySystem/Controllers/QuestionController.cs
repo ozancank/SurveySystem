@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SurveySystem.Models;
 using SurveySystem.Utils;
@@ -11,6 +12,10 @@ namespace SurveySystem.Controllers
     {
         public IActionResult Index()
         {
+            if (HttpContext.Session.GetString("Admin") == null)
+            {
+                return RedirectToAction("SignIn", "Login");
+            }
             var model = db.Questions.ToList();
             return View(model);
         }

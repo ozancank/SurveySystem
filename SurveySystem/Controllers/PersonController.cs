@@ -15,12 +15,20 @@ namespace SurveySystem.Controllers
             return View(model);
         }
 
-        public IActionResult Create(Person person)
+        public IActionResult Create(Person person, string Answer)
         {
             if (person.NameSurname != null)
             {
                 person.CreateDate = DateTime.Now;
                 person.CreateBy = NameSurname;
+                if (Answer == Constants.AnswerType.Yes)
+                {
+                    person.IsAdmin = true;
+                }
+                else
+                {
+                    person.IsAdmin = false;
+                }
                 db.Persons.Add(person);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -42,11 +50,19 @@ namespace SurveySystem.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit(Person person)
+        public IActionResult Edit(Person person, string Answer)
         {
             db.Entry(person).State = EntityState.Modified;
             db.Entry(person).Property(e => e.CreateBy).IsModified = false;
             db.Entry(person).Property(e => e.CreateDate).IsModified = false;
+            if (Answer == Constants.AnswerType.Yes)
+            {
+                person.IsAdmin = true;
+            }
+            else
+            {
+                person.IsAdmin = false;
+            }
             person.ModifyBy = NameSurname;
             person.ModifyDate = DateTime.Now;
             db.SaveChanges();

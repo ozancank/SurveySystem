@@ -3,8 +3,8 @@ $(function() {
     "use strict";
      
 	 
-//sidebar menu js
-$.sidebarMenu($('.sidebar-menu'));
+////sidebar menu js
+//$.sidebarMenu($('.sidebar-menu'));
 
 // === toggle-menu js
 

@@ -20,6 +20,10 @@ namespace SurveySystem.Controllers
             {
                 HttpContext.Session.SetString("Code", person.Code);
                 HttpContext.Session.SetString("NameSurname", person.NameSurname);
+                if (person.IsAdmin==true)
+                {
+                    HttpContext.Session.SetString("Admin", "Admin");
+                }
                 return RedirectToAction("Index", "Answer");
             }
             else
@@ -27,6 +31,12 @@ namespace SurveySystem.Controllers
                 ViewBag.Error = "Kullanıcı Adı veya Şifre Hatalı";
                 return View();
             }
+        }
+
+        public IActionResult LogOut()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToAction("SignIn", "Login");
         }
     }
 }

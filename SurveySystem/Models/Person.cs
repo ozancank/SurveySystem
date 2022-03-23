@@ -15,5 +15,6 @@ namespace SurveySystem.Models
         public string CreateBy { get; set; }
         public DateTime? ModifyDate { get; set; }
         public string ModifyBy { get; set; }
+        public bool? IsAdmin { get; set; }
     }
 }
